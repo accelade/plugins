@@ -37,10 +37,11 @@
         }
     },
     "scripts": {
-        "test": "pest",
-        "test:coverage": "pest --coverage",
-        "format": "pint",
-        "format:test": "pint --test"
+        "test": "vendor/bin/pest --no-coverage",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "format:test": "vendor/bin/pint --test",
+        "mago": "../../mago lint"
     },
     "config": {
         "sort-packages": true,
@@ -55,7 +56,7 @@
             ]
         },
         "accelade": {
-            "plugin": "{{ namespace }}\\{{ package }}Plugin"
+            "plugin": "{{ namespace }}\\{{ studly_name }}Plugin"
         }
     },
     "minimum-stability": "dev",

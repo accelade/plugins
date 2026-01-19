@@ -31,6 +31,9 @@ class {{ class }} extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', '{{ id }}');
 
 {{ migrations_loading }}{{ routes_loading }}
+        // Register documentation with Accelade docs system
+        $this->registerDocs();
+
         if ($this->app->runningInConsole()) {
             // Publish config
             $this->publishes([
@@ -43,5 +46,30 @@ class {{ class }} extends ServiceProvider
                 Commands\{{ install_command_class }}::class,
             ]);
         }
+    }
+
+    /**
+     * Register documentation with Accelade docs system.
+     */
+    protected function registerDocs(): void
+    {
+        if (! $this->app->bound('accelade.docs')) {
+            return;
+        }
+
+        $docs = $this->app->make('accelade.docs');
+
+        // Register package path
+        $docs->registerPackage('{{ kebab_name }}', __DIR__ . '/../docs');
+
+        // Register navigation group
+        $docs->registerGroup('{{ kebab_name }}', '{{ studly_name }}', 'puzzle-piece', 50);
+
+        // Register sections
+        $docs->section('{{ kebab_name }}-overview')
+            ->label('Overview')
+            ->markdown('getting-started.md')
+            ->inGroup('{{ kebab_name }}')
+            ->register();
     }
 }
