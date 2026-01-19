@@ -2,21 +2,21 @@ blank_issues_enabled: false
 
 contact_links:
   - name: Documentation
-    url: https://github.com/accelade/infolists/tree/main/docs
+    url: https://github.com/accelade/plugins/tree/main/docs
     about: Check the documentation for answers to common questions
 
   - name: Discussions
-    url: https://github.com/accelade/infolists/discussions
+    url: https://github.com/accelade/plugins/discussions
     about: Ask questions and discuss ideas with the community
 
   - name: Feature Request
-    url: https://github.com/accelade/infolists/discussions/categories/ideas
+    url: https://github.com/accelade/plugins/discussions/categories/ideas
     about: Suggest new features or improvements
 
   - name: Security Vulnerability
-    url: https://github.com/accelade/infolists/security/advisories/new
+    url: https://github.com/accelade/plugins/security/advisories/new
     about: Report security vulnerabilities privately
 
   - name: Stack Overflow
-    url: https://stackoverflow.com/questions/tagged/accelade-infolists
-    about: Ask questions on Stack Overflow with the 'accelade-infolists' tag
+    url: https://stackoverflow.com/questions/tagged/accelade-plugins
+    about: Ask questions on Stack Overflow with the 'accelade-plugins' tag

@@ -32,7 +32,7 @@ class PluginGenerator
         $directories = $this->featureFactory->getDirectories($config);
 
         foreach ($directories as $dir) {
-            $this->files->makeDirectory("{$basePath}/{$dir}", 0755, true, true);
+            $this->files->makeDirectory("{$basePath}/{$dir}", 0o755, true, true);
         }
     }
 

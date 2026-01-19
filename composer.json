@@ -62,11 +62,12 @@
         }
     },
     "scripts": {
-        "test": "pest",
-        "test:coverage": "pest --coverage",
-        "format": "pint",
-        "format:test": "pint --test",
-        "analyse": "phpstan analyse --memory-limit=512M"
+        "test": "vendor/bin/pest --no-coverage",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "format:test": "vendor/bin/pint --test",
+        "mago": "../../mago lint",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=512M"
     },
     "config": {
         "sort-packages": true,

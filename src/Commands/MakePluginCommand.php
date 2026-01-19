@@ -45,7 +45,7 @@ class MakePluginCommand extends Command
         $vendor = $this->getVendorName();
 
         // Prepare configuration
-        $basePath = $this->option('path') ?: base_path('packages/'.Str::lower($vendor).'/'.Str::kebab($name));
+        $basePath = $this->option('path') ?? base_path('packages/'.Str::lower($vendor).'/'.Str::kebab($name));
 
         // Check if directory exists
         if ($this->files->exists($basePath)) {
@@ -167,19 +167,19 @@ class MakePluginCommand extends Command
         );
 
         // Parse selected features
-        $options['generate_plugin'] = ! $this->option('no-plugin') && in_array('plugin', $selectedFeatures);
-        $options['generate_migrations'] = in_array('migrations', $selectedFeatures);
-        $options['generate_views'] = in_array('views', $selectedFeatures);
-        $options['generate_web_routes'] = in_array('web_routes', $selectedFeatures);
-        $options['generate_api_routes'] = in_array('api_routes', $selectedFeatures);
-        $options['generate_css'] = in_array('css', $selectedFeatures);
-        $options['generate_js'] = in_array('js', $selectedFeatures);
-        $options['generate_arts'] = in_array('arts', $selectedFeatures);
-        $options['generate_components'] = in_array('components', $selectedFeatures);
-        $options['generate_github_files'] = in_array('github', $selectedFeatures);
-        $options['generate_docs'] = in_array('docs', $selectedFeatures);
-        $options['git_init'] = in_array('git_init', $selectedFeatures);
-        $options['composer_install'] = in_array('composer_install', $selectedFeatures);
+        $options['generate_plugin'] = ! $this->option('no-plugin') && in_array('plugin', $selectedFeatures, true);
+        $options['generate_migrations'] = in_array('migrations', $selectedFeatures, true);
+        $options['generate_views'] = in_array('views', $selectedFeatures, true);
+        $options['generate_web_routes'] = in_array('web_routes', $selectedFeatures, true);
+        $options['generate_api_routes'] = in_array('api_routes', $selectedFeatures, true);
+        $options['generate_css'] = in_array('css', $selectedFeatures, true);
+        $options['generate_js'] = in_array('js', $selectedFeatures, true);
+        $options['generate_arts'] = in_array('arts', $selectedFeatures, true);
+        $options['generate_components'] = in_array('components', $selectedFeatures, true);
+        $options['generate_github_files'] = in_array('github', $selectedFeatures, true);
+        $options['generate_docs'] = in_array('docs', $selectedFeatures, true);
+        $options['git_init'] = in_array('git_init', $selectedFeatures, true);
+        $options['composer_install'] = in_array('composer_install', $selectedFeatures, true);
 
         $this->newLine();
 
@@ -188,7 +188,7 @@ class MakePluginCommand extends Command
         $options['plugin_description'] = $defaultDescription;
 
         // Ask about custom composer details (only if selected)
-        if (in_array('custom_composer', $selectedFeatures)) {
+        if (in_array('custom_composer', $selectedFeatures, true)) {
             $options['plugin_description'] = text(
                 label: 'Plugin description',
                 default: $defaultDescription,
@@ -218,7 +218,7 @@ class MakePluginCommand extends Command
         }
 
         // Ask about Languages (only if selected)
-        if (in_array('languages', $selectedFeatures)) {
+        if (in_array('languages', $selectedFeatures, true)) {
             $languagesInput = text(
                 label: 'Which languages do you need? (comma-separated)',
                 default: 'en',

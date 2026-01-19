@@ -26,7 +26,7 @@ Instead, please report them via one of the following methods:
 
 2. **Email**
    - Send an email to: security@example.com (replace with actual email)
-   - Use the subject line: `[SECURITY] Accelade Infolists Vulnerability Report`
+   - Use the subject line: `[SECURITY] Accelade Plugins Vulnerability Report`
 
 ### What to Include
 
@@ -78,7 +78,7 @@ We will not pursue legal action against researchers who:
 
 ## Security Best Practices
 
-When using Accelade Infolists in your application:
+When using Accelade Plugins in your application:
 
 ### XSS Prevention
 
@@ -114,4 +114,4 @@ After a vulnerability has been fixed, we will:
 
 For security-related questions that are not vulnerabilities, please open a regular GitHub issue or discussion.
 
-Thank you for helping keep Accelade Infolists and its users safe!
+Thank you for helping keep Accelade Plugins and its users safe!

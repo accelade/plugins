@@ -224,7 +224,7 @@ class PluginDiscovery
         $cacheDir = dirname($cachePath);
 
         if (! is_dir($cacheDir)) {
-            File::makeDirectory($cacheDir, 0755, true);
+            File::makeDirectory($cacheDir, 0o755, true);
         }
 
         $classes = $plugins->map(fn (PluginInterface $plugin) => get_class($plugin))->toArray();
