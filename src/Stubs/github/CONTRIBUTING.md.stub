@@ -1,0 +1,48 @@
+# Contributing to {{ name }}
+
+First off, thanks for taking the time to contribute!
+
+## How Can I Contribute?
+
+### Reporting Bugs
+
+Before creating bug reports, please check the existing issues to avoid duplicates.
+
+### Suggesting Enhancements
+
+Enhancement suggestions are tracked as GitHub issues.
+
+### Pull Requests
+
+1. Fork the repo and create your branch from `main`
+2. If you've added code that should be tested, add tests
+3. Ensure the test suite passes
+4. Make sure your code follows the existing code style
+
+## Development Setup
+
+```bash
+# Clone your fork
+git clone https://github.com/your-username/{{ name }}.git
+
+# Install dependencies
+composer install
+
+# Run tests
+composer test
+
+# Format code
+composer format
+```
+
+## Code Style
+
+This package uses Laravel Pint for code styling. Run `composer format` before committing.
+
+## Testing
+
+All new features should include tests. Run tests with:
+
+```bash
+composer test
+```

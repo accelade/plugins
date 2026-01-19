@@ -1,0 +1,63 @@
+{
+    "name": "{{ vendor }}/{{ package }}",
+    "description": "{{ description }}",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "{{ license }}",
+    "keywords": [
+        "laravel",
+        "accelade",
+        "plugin"
+    ],
+    "authors": [
+        {
+            "name": "{{ author }}",
+            "email": "{{ email }}"
+        }
+    ],
+    "require": {
+        "php": "^8.2|^8.3|^8.4",
+        "illuminate/support": "^11.0|^12.0",
+        "accelade/accelade": "^1.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "{{ namespace }}\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "{{ namespace }}\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:coverage": "pest --coverage",
+        "format": "pint",
+        "format:test": "pint --test"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "{{ namespace }}\\{{ service_provider }}"
+            ]
+        },
+        "accelade": {
+            "plugin": "{{ namespace }}\\{{ package }}Plugin"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

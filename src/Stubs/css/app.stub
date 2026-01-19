@@ -1,0 +1,9 @@
+/**
+ * {{ name }} Plugin Styles
+ *
+ * Add your custom styles here.
+ */
+
+@import "tailwindcss";
+
+/* Your custom styles */

@@ -1,0 +1,31 @@
+/**
+ * {{ name }} Plugin
+ *
+ * Main entry point for the plugin's JavaScript functionality.
+ */
+
+export const {{ name }} = {
+    name: '{{ kebab_name }}',
+    version: '1.0.0',
+
+    /**
+     * Initialize the plugin.
+     */
+    init(): void {
+        console.log(`{{ name }} plugin initialized`);
+    },
+
+    /**
+     * Clean up the plugin.
+     */
+    destroy(): void {
+        // Cleanup code
+    },
+};
+
+// Auto-initialize if in browser context
+if (typeof window !== 'undefined') {
+    (window as any).{{ name }} = {{ name }};
+}
+
+export default {{ name }};

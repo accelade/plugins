@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }}\Commands;
+
+use Illuminate\Console\Command;
+
+class {{ class }} extends Command
+{
+    /**
+     * The name and signature of the console command.
+     */
+    protected $signature = '{{ kebab_name }}:install
+                            {--force : Overwrite existing files}';
+
+    /**
+     * The console command description.
+     */
+    protected $description = 'Install the {{ name }} plugin';
+
+    /**
+     * Execute the console command.
+     */
+    public function handle(): int
+    {
+        $this->info('Installing {{ name }}...');
+
+        // Publish config
+        $this->call('vendor:publish', [
+            '--tag' => '{{ config }}-config',
+            '--force' => $this->option('force'),
+        ]);
+
+        $this->info('{{ name }} installed successfully!');
+
+        return self::SUCCESS;
+    }
+}

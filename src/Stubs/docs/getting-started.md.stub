@@ -1,0 +1,28 @@
+# Getting Started with {{ name }}
+
+{{ description }}
+
+## Installation
+
+Install via Composer:
+
+```bash
+composer require {{ vendor }}/{{ package }}
+```
+
+## Configuration
+
+Publish the config file:
+
+```bash
+php artisan vendor:publish --tag="{{ package }}-config"
+```
+
+## Basic Usage
+
+After installation, you can start using the plugin immediately.
+
+## Next Steps
+
+- Check the [API Reference](./api-reference.md)
+- Browse [Examples](./examples.md)

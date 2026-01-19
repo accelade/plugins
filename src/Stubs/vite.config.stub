@@ -1,0 +1,23 @@
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+    plugins: [
+        tailwindcss(),
+    ],
+    build: {
+        outDir: 'dist',
+        lib: {
+            entry: 'resources/js/app.ts',
+            name: '{{ name }}',
+            fileName: (format) => `{{ kebab_name }}.${format}.js`,
+            formats: ['es', 'iife'],
+        },
+        rollupOptions: {
+            external: [],
+            output: {
+                globals: {},
+            },
+        },
+    },
+});
