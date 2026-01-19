@@ -81,8 +81,10 @@ class PluginsServiceProvider extends ServiceProvider
             ], 'accelade-plugins-config');
         }
 
-        // Register documentation with Accelade docs system
-        $this->registerDocs();
+        // Register documentation after all service providers are booted
+        $this->app->booted(function () {
+            $this->registerDocs();
+        });
 
         // Auto-discover and register plugins
         $this->discoverPlugins();
@@ -109,18 +111,24 @@ class PluginsServiceProvider extends ServiceProvider
         $docs->section('plugins-overview')
             ->label('Overview')
             ->markdown('getting-started.md')
+            ->package('plugins')
+            ->icon('🧩')
             ->inGroup('plugins')
             ->register();
 
         $docs->section('plugins-creating')
             ->label('Creating Plugins')
             ->markdown('creating-plugins.md')
+            ->package('plugins')
+            ->icon('🛠️')
             ->inGroup('plugins')
             ->register();
 
         $docs->section('plugins-components')
             ->label('Components')
             ->markdown('components.md')
+            ->package('plugins')
+            ->icon('📦')
             ->inGroup('plugins')
             ->register();
     }

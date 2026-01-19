@@ -31,8 +31,10 @@ class {{ class }} extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', '{{ id }}');
 
 {{ migrations_loading }}{{ routes_loading }}
-        // Register documentation with Accelade docs system
-        $this->registerDocs();
+        // Register documentation after all service providers are booted
+        $this->app->booted(function () {
+            $this->registerDocs();
+        });
 
         if ($this->app->runningInConsole()) {
             // Publish config
@@ -69,6 +71,8 @@ class {{ class }} extends ServiceProvider
         $docs->section('{{ kebab_name }}-overview')
             ->label('Overview')
             ->markdown('getting-started.md')
+            ->package('{{ kebab_name }}')
+            ->icon('📖')
             ->inGroup('{{ kebab_name }}')
             ->register();
     }
