@@ -19,8 +19,7 @@ class MakePluginCommand extends Command
                             {name? : The name of the plugin}
                             {--vendor= : The vendor name}
                             {--path= : The base path where the plugin will be created}
-                            {--no-plugin : Skip generating plugin class}
-                            {--no-interaction : Run without user interaction}';
+                            {--no-plugin : Skip generating plugin class}';
 
     protected $description = 'Create a new Accelade plugin package';
 
@@ -82,7 +81,7 @@ class MakePluginCommand extends Command
         $this->displaySuccessMessage($basePath);
 
         // Post-generation tasks
-        if (! $this->option('no-interaction')) {
+        if (! ! $this->input->isInteractive()) {
             $this->handlePostGeneration($basePath, $config);
         }
 
@@ -95,7 +94,7 @@ class MakePluginCommand extends Command
             return $this->argument('name');
         }
 
-        if ($this->option('no-interaction')) {
+        if (! $this->input->isInteractive()) {
             return null;
         }
 
@@ -112,7 +111,7 @@ class MakePluginCommand extends Command
             return $this->option('vendor');
         }
 
-        if ($this->option('no-interaction')) {
+        if (! $this->input->isInteractive()) {
             return config('accelade-plugins.defaults.vendor', 'accelade');
         }
 
@@ -128,7 +127,7 @@ class MakePluginCommand extends Command
      */
     protected function gatherConfigurationOptions(): array
     {
-        if ($this->option('no-interaction')) {
+        if (! $this->input->isInteractive()) {
             return $this->getDefaultOptions();
         }
 
@@ -282,7 +281,7 @@ class MakePluginCommand extends Command
 
     protected function confirmCreation(string $name, string $basePath): bool
     {
-        if ($this->option('no-interaction')) {
+        if (! $this->input->isInteractive()) {
             return true;
         }
 
